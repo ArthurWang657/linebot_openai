@@ -29,17 +29,10 @@ def GPT_response(text):
     # 接收回應
     response = openai.ChatCompletion.create(
         model = 'gpt-3.5-turbo',
-        messages=[ {"role": "system", "content": "You are a friendly chatbot."},
-        {"role": "user", "content": "請為MISUMI台灣公司撰寫一個簡要的描述。"},
-        {"role": "assistant", "content": "MISUMI台灣是MISUMI集團的一個分支機構，屬於日本MISUMI集團的一部分。他們是一家全球性的供應商，提供工業用零件和零件設計的解決方案。MISUMI台灣提供各種標準零件，如螺絲、螺母、軸承、線性導軌、夾具等，同時也提供客製化的設計服務，以滿足不同客戶的需求。他們的目標是提供高品質、高精度的產品，並且致力於縮短交貨時間，讓客戶能夠更有效率地進行生產和製造。MISUMI台灣的產品廣泛應用於許多行業，包括機械、汽車、電子、半導體、醫療等。如需更多詳細資訊，請訪問MISUMI台灣的官方網站或直接聯繫他們。"},
-        {"role": "user", "content": "請根據MISUMI台灣公司的業務，列出至少五個產品類別。"},
-        {"role": "assistant", "content": "螺絲、螺母和螺栓：包括各種尺寸和材質的螺絲、螺母和螺栓，用於固定和連接零件。 \
-線性導軌：提供高精度的線性運動控制解決方案，用於機械和自動化應用。 \
-夾具：各種夾具和固定裝置，用於固定工件並實現準確的加工和裝配。 \
-軸承：提供不同類型的軸承，用於支撐和減少機械零件之間的摩擦。 \
-模具和模具零件：各種模具和模具零件，用於注塑、壓鑄等製造工藝。 \
-這些只是MISUMI台灣公司產品的一小部分，他們還提供許多其他類別的工業用零件和相關產品。如果您對特定產品或更多產品類別感興趣，建議您訪問MISUMI台灣的官方網站或直接聯繫他們以獲取更詳細的資訊。"}
-    ])
+        messages=[ {"role": "system", "content": "You are a friendly chatbot."}],
+        temperature=1
+    )
+    
     print(response)
     # 重組回應
     answer = response['choices'][0]['message']['content']
