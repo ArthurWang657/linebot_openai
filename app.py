@@ -29,9 +29,9 @@ def GPT_response(text):
     # 接收回應
     response = openai.ChatCompletion.create(
         model = 'gpt-3.5-turbo',
-        messages = [  {"role": "system", "content": "系統訊息，目前無用"},
-            {"role": "assistant", "content": "此處填入機器人訊息"},
-            {"role": "user", "content": input("You: ")}])
+        messages=[{"role": "system", "content": 'You are a helpful assistant who understands data science.'},
+                        {"role": "user", "content": 'SPECIFY WANT YOU WANT THE AI ASSISTANT TO SAY'}
+    ])
     print(response)
     # 重組回應
     answer = response['choices'][0]['message']['content']
