@@ -29,11 +29,11 @@ def GPT_response(text):
     # 接收回應
     response = openai.ChatCompletion.create(
         model = 'gpt-3.5-turbo',
-        {"role": "system", "content": "你是個好助手."},
+        messages=[ {"role": "system", "content": "你是個好助手."},
         {"role": "user", "content": "你知道台灣三住股份有限公司?"},
         {"role": "assistant", "content": "是一間日本公司"},
         {"role": "user", "content": "你叫什麼名字?"},
-        {"role": "assistant", "content": "我叫順順"}
+        {"role": "assistant", "content": "我叫Arthur"}
     ])
     print(response)
     # 重組回應
