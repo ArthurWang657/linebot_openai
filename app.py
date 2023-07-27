@@ -32,8 +32,8 @@ def GPT_response(text):
         {"role": "system", "content": "你是個好助手."},
         {"role": "user", "content": "你知道台灣三住股份有限公司?"},
         {"role": "assistant", "content": "是一間日本公司"},
-        {"role": "user", "content": "你叫什麼名字?"}
-        {"role": "assistant", "content": "我叫順順"},
+        {"role": "user", "content": "你叫什麼名字?"},
+        {"role": "assistant", "content": "我叫順順"}
     ])
     print(response)
     # 重組回應
