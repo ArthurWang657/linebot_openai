@@ -27,7 +27,7 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 
 def GPT_response(text):
     # 接收回應
-    response = openai.Completion.create(
+    response = openai.ChatCompletion.create(
         model = 'gpt-3.5-turbo',
         messages = [
         {'role': 'user', 'content': 'Hello!'}
@@ -36,7 +36,7 @@ def GPT_response(text):
     )
     print(response)
     # 重組回應
-    answer = completion['choices'][0]['message']['content']
+    answer = response['choices'][0]['message']['content']
     print(answer)
     return answer
 
