@@ -31,9 +31,7 @@ def GPT_response(text):
         model = 'gpt-3.5-turbo',
         messages = [  {"role": "system", "content": "系統訊息，目前無用"},
             {"role": "assistant", "content": "此處填入機器人訊息"},
-            {"role": "user", "content": input("You: ")}],
-        temperature = 0
-    )
+            {"role": "user", "content": input("You: ")}])
     print(response)
     # 重組回應
     answer = response['choices'][0]['message']['content']
