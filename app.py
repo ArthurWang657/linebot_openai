@@ -30,7 +30,7 @@ def GPT_response(text):
     response = openai.ChatCompletion.create(
         model = 'gpt-3.5-turbo',
         messages=[ {"role": "system", "content": "You are a friendly chatbot."}],
-        temperature=1
+        temperature=1,
     )
     
     print(response)
