@@ -61,7 +61,7 @@ context = [ {'role':'system', 'content':"""
 
 def GPT_response(text):
     # 接收回應
-    promp = text
+    prompt = text
     context.append({'role':'user', 'content':f"{prompt}"})
     response = get_completion_from_messages(context) 
     context.append({'role':'assistant', 'content':f"{response}"})
