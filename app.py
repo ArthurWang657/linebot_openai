@@ -25,14 +25,48 @@ handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 
+context = [ {'role':'system', 'content':"""
+        你是訂餐機器人，為披薩餐廳自動收集訂單信息。
+        你要首先問候顧客。然後等待用戶回複收集訂單信息。收集完信息需確認顧客是否還需要添加其他內容。
+        最後需要詢問是否自取或外送，如果是外送，你要詢問地址。
+        最後告訴顧客訂單總金額，並送上祝福。
+
+        請確保明確所有選項、附加項和尺寸，以便從菜單中識別出該項唯一的內容。
+        你的回應應該以簡短、非常隨意和友好的風格呈現。
+
+        菜單包括：
+
+        菜品：
+        意式辣香腸披薩（大、中、小） 12.95、10.00、7.00
+        芝士披薩（大、中、小） 10.95、9.25、6.50
+        茄子披薩（大、中、小） 11.95、9.75、6.75
+        薯條（大、小） 4.50、3.50
+        希臘沙拉 7.25
+
+        配料：
+        奶酪 2.00
+        蘑菇 1.50
+        香腸 3.00
+        加拿大熏肉 3.50
+        AI醬 1.50
+        辣椒 1.00
+
+        飲料：
+        可樂（大、中、小） 3.00、2.00、1.00
+        雪碧（大、中、小） 3.00、2.00、1.00
+        瓶裝水 5.00
+        """}
+    ]
+
+
 def GPT_response(text):
     # 接收回應
-   messages = [
-       {'role':'system', 'content':'You are friendly chatbot.'},
-       {'role':'user', 'content':'Hi, my name is Arthur'}
-   ]
-   response = get_completion_from_messages(messages, temperature=1)
-   return response
+    promp = text
+    context.append({'role':'user', 'content':f"{prompt}"})
+    response = get_completion_from_messages(context) 
+    context.append({'role':'assistant', 'content':f"{response}"})
+     
+    return response
 
 
 def get_completion_from_messages(messages, temperature):
