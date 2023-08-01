@@ -27,17 +27,25 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 
 def GPT_response(text):
     # 接收回應
+   messages = [
+       {'role':'system', 'content':'You are friendly chatbot.'},
+       {'role':'user', 'content':'Hi, my name is Arthur'}
+   ]
+   response = get_completion_from_messages(messages, temperature=1)
+   return response
+
+
+def get_completion_from_messages(messages, model = 'gpt-3.5-turbo'):
+    # 接收回應
     response = openai.ChatCompletion.create(
-        model = 'gpt-3.5-turbo',
-        messages=[ {"role": "user", "content": text}],
-        temperature=0.5
+        model = model,
+        messages=messages,
+        temperature=temperature
     )
     
-    print(response)
-    # 重組回應
-    answer = response['choices'][0]['message']['content']
-    print(answer)
-    return answer
+    print(response.choices[0].message["content"])
+    return = response.choices[0].message["content"]
+
 
 
 # 監聽所有來自 /callback 的 Post Request
