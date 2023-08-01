@@ -35,10 +35,10 @@ def GPT_response(text):
    return response
 
 
-def get_completion_from_messages(messages, model = 'gpt-3.5-turbo'):
+def get_completion_from_messages(messages, temperature):
     # 接收回應
     response = openai.ChatCompletion.create(
-        model = model,
+        model = 'gpt-3.5-turbo',
         messages=messages,
         temperature=temperature
     )
