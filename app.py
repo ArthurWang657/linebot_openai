@@ -30,7 +30,9 @@ context = [ {'role':'system', 'content':"""
         你要首先問候顧客。然後等待用戶問問題。依據台灣三住網頁的內容來回答。
         你的回應應該以簡短、非常隨意和友好的風格呈現。
 
-        台灣三住網頁網址 : https://tw.misumi-ec.com/
+        台灣三住網頁網址 : 
+        https://tw.misumi-ec.com/guide/search/category.html
+        https://tw.misumi-ec.com/
 
         """}
     ]
