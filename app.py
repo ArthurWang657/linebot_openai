@@ -54,7 +54,7 @@ def GPT_response(text):
 def get_completion_from_messages(messages):
     # 接收回應
     response = openai.chat.completions.create(
-        model = 'gpt-4',
+        model = 'ft:davinci-002:tymphany::8fATMT3E',
         messages=messages,
         temperature=1
     )
